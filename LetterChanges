@@ -1,0 +1,40 @@
+/*Have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string.
+
+Use the Parameter Testing feature in the box below to test your code with different arguments */
+
+import java.util.*; 
+import java.io.*;
+
+class Main {
+
+  public static char[] LetterChanges(String str) {
+    // code goes here 
+    
+    String answer = "";
+    for(int i=0;i<str.length();i++)
+    {
+      if((str.charAt(i)>96) && (str.charAt(i)<122))
+      answer=answer+(char)(str.charAt(i)+1);
+      else if(str.charAt(i)==122)
+      answer=answer+(char)97;
+      else
+      answer= answer+(char)str.charAt(i);
+    }
+    char[] chArray=answer.toCharArray();
+    for (int j=0;j<chArray.length;j++)
+    {
+      if((chArray[j]=='a')||(chArray[j]=='e')||(chArray[j]=='i')||(chArray[j]=='o')||(chArray[j]=='u'))
+      chArray[j]= Character.toUpperCase(chArray[j]);
+    }
+   
+    
+    return chArray;
+  }
+
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(LetterChanges(s.nextLine())); 
+  }
+
+}
