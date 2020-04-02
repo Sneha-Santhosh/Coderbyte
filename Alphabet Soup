@@ -1,0 +1,35 @@
+/*  Have the function AlphabetSoup(str) take the str string parameter being passed and return the string with the letters in alphabetical order (ie. hello becomes ehllo). Assume numbers and punctuation symbols will not be included in the string.
+
+Use the Parameter Testing feature in the box below to test your code with different arguments. */
+
+import java.util.*; 
+import java.io.*;
+
+class Main {
+
+  public static char[] AlphabetSoup(String str) {
+    // code goes here  
+    int[] order;
+    char temp;
+    char[] chArray =str.toCharArray();
+    for(int i =0;i<chArray.length;i++)
+    {
+      for(int j =i+1;j<chArray.length;j++)
+      {
+        if(chArray[i]>chArray[j])
+    {
+      temp = chArray[j];
+      chArray[j]=chArray[i];
+     chArray[i]=temp;
+    }
+    }}
+    return chArray;
+  }
+
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(AlphabetSoup(s.nextLine())); 
+  }
+
+}
